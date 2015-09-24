@@ -2,11 +2,11 @@ package edu.wctc.sje.bookapp.controller;
 
 import edu.wctc.sje.bookapp.model.Author;
 import edu.wctc.sje.bookapp.model.AuthorDao;
-import edu.wctc.sje.bookweb.model.AuthorDaoStrategy;
-import edu.wctc.sje.bookweb.model.AuthorService;
-import edu.wctc.sje.bookweb.model.ConnPoolAuthorDao;
-import edu.wctc.sje.bookweb.model.DBStrategy;
-import edu.wctc.sje.bookweb.model.MySqlDbStrategy;
+import edu.wctc.sje.bookapp.model.AuthorDaoStrategy;
+import edu.wctc.sje.bookapp.model.AuthorService;
+import edu.wctc.sje.bookapp.model.ConnPoolAuthorDao;
+import edu.wctc.sje.bookapp.model.DBStrategy;
+import edu.wctc.sje.bookapp.model.MySqlDbStrategy;
 import java.io.IOException;
 import java.util.List;
 import javax.naming.Context;
