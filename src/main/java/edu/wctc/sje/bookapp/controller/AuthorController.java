@@ -4,9 +4,9 @@ import edu.wctc.sje.bookapp.model.Author;
 import edu.wctc.sje.bookapp.model.AuthorDao;
 import edu.wctc.sje.bookapp.model.AuthorDaoStrategy;
 import edu.wctc.sje.bookapp.model.AuthorService;
-import edu.wctc.sje.bookapp.model.ConnPoolAuthorDao;
+
 import edu.wctc.sje.bookapp.model.DBStrategy;
-import edu.wctc.sje.bookapp.model.MySqlDbStrategy;
+import edu.wctc.sje.bookapp.model.MySqlDb;
 import java.io.IOException;
 import java.util.List;
 import javax.naming.Context;
@@ -62,7 +62,7 @@ public class AuthorController extends HttpServlet {
          */
         // need to change this later!
         // will call the constructors below.  need to usethese in the controller
-        DBStrategy db = new MySqlDbStrategy();
+        DBStrategy db = new MySqlDb();
         AuthorDaoStrategy authDao
                 = new AuthorDao(db, "com.mysql.jdbc.Driver",
                         "jdbc:mysql://localhost:3306/book", "root", "admin");
@@ -85,6 +85,7 @@ public class AuthorController extends HttpServlet {
                 List<Author> authors = null;
                 authors = authService.getAllAuthors();
                 request.setAttribute("authors", authors);
+                System.out.println("authors" + authors);
                 destination = LIST_PAGE;
 
             } else if (action.equals("ADD_ACTION")) {
