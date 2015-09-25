@@ -16,17 +16,16 @@ import java.util.*;
  */
 public class AuthorDao implements AuthorDaoStrategy {
 
-    private AuthorDaoStrategy db;
-    private String driverClass;
+    private DBStrategy db;
     private String driverClassName; // = "com.mysql.jdbc.Driver";
     private String url;  // = "jdbc:mysql://localhost:3306/book";
     private String username;  // = "root";
     private String password; // = "admin";
        
-public AuthorDao (AuthorDaoStrategy db, String driverClassName, String url, String username, 
+public AuthorDao (DBStrategy db, String driverClassName, String url, String username, 
         String password){
     this.db = db;
-    this.driverClass = driverClass;
+    this.driverClassName = driverClassName;
     this.url = url;
     this.username = username;
     this.password = password;
@@ -54,9 +53,19 @@ public AuthorDao (AuthorDaoStrategy db, String driverClassName, String url, Stri
             records.add(author);
                                    
         }
+         db.closeConnection();
         return records;
      
     }
     
-    
+    public static void main(String[] args) throws Exception {
+        AuthorDao dao = new AuthorDao(new MySqlDb(), 
+         "com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/book",
+     "root", "admin");
+        
+        List<Author> authors = dao.getAllAuthors();
+        for (Author a : authors){
+            System.out.println(a);
+        }
+    }
 }
