@@ -12,14 +12,14 @@ import java.util.Objects;
  * @author Steven
  */
 public class Author {
-    private Integer authorID;
+    private Integer AuthorId;
     private String authorName;
     private String dateAdded;
 
     //constructor
     
     public Author(Integer authorID, String authorName, String dateAdded) {
-        this.authorID = authorID;
+        this.AuthorId = authorID;
         this.authorName = authorName;
         this.dateAdded = dateAdded;
     }
@@ -28,15 +28,15 @@ public class Author {
     }
 
     public Author(Integer authorID) {
-        this.authorID = authorID;
+        this.AuthorId = authorID;
     }
     
     
 
     //setters
 
-    public void setAuthorID(Integer authorID) {
-        this.authorID = authorID;
+    public void setAuthorId(Integer AuthorId) {
+        this.AuthorId = AuthorId;
     }
 
     public void setAuthorName(String authorName) {
@@ -49,8 +49,8 @@ public class Author {
     
     
     // getters
-    public Integer getAuthorID() {
-        return authorID;
+    public Integer getAuthorId() {
+        return AuthorId;
     }
 
     public String getAuthorName() {
@@ -64,7 +64,7 @@ public class Author {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.authorID);
+        hash = 37 * hash + Objects.hashCode(this.AuthorId);
         return hash;
     }
 
@@ -79,7 +79,7 @@ public class Author {
             return false;
         }
         final Author other = (Author) obj;
-        if (!Objects.equals(this.authorID, other.authorID)) {
+        if (!Objects.equals(this.AuthorId, other.AuthorId)) {
             return false;
         }
         return true;
@@ -87,7 +87,7 @@ public class Author {
 
     @Override
     public String toString() {
-        return "Author{" + "authorID=" + authorID + ", authorName=" + authorName + ", dateAdded=" + dateAdded + '}';
+        return "Author{" + "authorID=" + AuthorId + ", authorName=" + authorName + ", dateAdded=" + dateAdded + '}';
     }
     
     
